@@ -1,0 +1,59 @@
+{
+  "domainOrder": [
+    "认证授权域",
+    "用户与组织管理域",
+    "项目管理域",
+    "工作空间域",
+    "上下文库域",
+    "流水线域",
+    "资产注册域",
+    "代码评审域",
+    "门户与内容域",
+    "基础设施域",
+    "数字分身域",
+    "集成域"
+  ],
+  "domains": {
+    "认证授权域": true,
+    "用户与组织管理域": true,
+    "项目管理域": true,
+    "工作空间域": true,
+    "上下文库域": true,
+    "流水线域": true,
+    "资产注册域": true,
+    "代码评审域": true,
+    "门户与内容域": true,
+    "基础设施域": true,
+    "数字分身域": true,
+    "集成域": true
+  },
+  "responseTypeDefault": {
+    "core": "WRAPPED",
+    "integration": "WRAPPED",
+    "telemetry": "WRAPPED",
+    "file-service": "WRAPPED",
+    "portal-backend": "WRAPPED",
+    "mcp-hosting": "WRAPPED",
+    "agentorbit": "WRAPPED",
+    "sso": "NON_JSON",
+    "org-mapping": "BARE",
+    "adapter-ads": "BARE",
+    "adapter-gitlab": "BARE",
+    "adapter-codearts": "BARE",
+    "adapter-automation": "BARE"
+  },
+  "prepare": [],
+  "route": {
+    ":projectId": "{{CAPTURED.projectId}}",
+    ":userId": "{{CAPTURED.userId}}",
+    ":workspaceId": "{{CAPTURED.workspaceId}}"
+  },
+  "interfaces": {
+    "POST /api/auth/login": {
+      "responseType": "WRAPPED",
+      "capture": {
+        "$.data.token": "TOKEN"
+      }
+    }
+  }
+}

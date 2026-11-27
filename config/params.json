@@ -1,0 +1,12 @@
+{
+  "common": {
+    "projectName": "auto-test-proj",
+    "userEmail": "auto-test-user@asdm.ai",
+    "workspaceName": "auto-test-ws"
+  },
+  "domains": {
+    "integration": {
+      "webhookUrl": "https://example.com/hook"
+    }
+  }
+}
